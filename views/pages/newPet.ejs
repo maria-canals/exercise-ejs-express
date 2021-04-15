@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <form method='POST' action="/newPet">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="input" class="form-control" id="name" aria-describedby="emailHelp" name="name">
+                </div>
+                <div class="mb-3">
+                  <label for="organization" class="form-label">Organization</label>
+                  <input type="input" class="form-control" id="organization" name="organization">
+                </div>
+                <div class="mb-3">
+                    <label for="year" class="form-label">Year</label>
+                    <input type="input" class="form-control" id="year" name="year">
+                  </div>
+        
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>

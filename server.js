@@ -13,8 +13,10 @@ var app = express();
 app.set('view engine', 'ejs');
 
 // use res.render to load up an ejs view file
+app.use(express.urlencoded({
+    extended: true
+  }))
 
-// index page 
 app.get('/', function(req, res) {
 
     var tagline = "No programming concept is complete without a cute animal mascot.";
@@ -25,10 +27,30 @@ app.get('/', function(req, res) {
     });
 });
 
-// about page
 app.get('/about', function(req, res) {
     res.render('pages/about');
 });
+
+app.get('/newpet', function(req, res) {
+    res.render('pages/newPet');
+
+});
+
+app.post('/newpet', function(req, res, next) {
+    res.send('pages/newPet');
+    const {name, organization, year} = req.body; 
+    if(name.length > 3 && organization.length > 3 && +year){
+       mascots.push({
+           name,
+           organization,
+           birth_year: year
+       })
+       res.redirect('/');
+       next();
+    }
+
+});
+
 
 app.listen(8080);
 console.log('8080 is the magic port');

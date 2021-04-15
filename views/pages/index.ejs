@@ -17,7 +17,7 @@
                 <% mascots.forEach(function(mascot) { %>
                     <li>
                         <strong><%= mascot.name %></strong>
-                        representing <%= mascot.organization %>, born 
+                        representing <%= mascot.organization %>, born <%= mascot.birth_year %>
                     </li>
                 <% }); %>
             </ul>
@@ -25,6 +25,7 @@
     </main>
 
     <footer>
+        <%- include('../partials/footer'); %>
     </footer>
 
 </body>
